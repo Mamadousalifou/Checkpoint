@@ -1,0 +1,141 @@
+
+Après avoir appris ce que sont les tableaux et à quoi ils servent, entraînons-nous.
+La première chose à faire pour commencer avec n’importe quel tableau est de savoir comment le définir et comment le parcourir. Prenons le code suivant :
+
+Une structure de données de tableau, ou simplement un tableau, est l’une des structures de données les plus utilisées en programmation.
+Ici, nous allons commencer par apprendre à déclarer un tableau.
+Prenons le code suivant :
+
+
+ALGORITHM traverse_array
+VAR
+   tab : ARRAY_OF INTEGER[5]; // declaring the array and define its length.
+   i : INTEGER; // declaring the index for each element in the array.
+BEGIN
+  tab := {1,2,3,5,7,8}; // inserting the elements directly in the array.
+  Write('Print Array :')
+  FOR i FROM 0 TO 4 STEP 1  DO   // the index of arrays start from 0;
+     Write(tab[i]) // to access the element, we use the name_array[indexation]
+  END_FOR
+
+// another version
+   FOR i FROM 0 TO tab.length-1 STEP 1  DO
+   // here we can replace the static
+   //number in the max field using the `.length` property
+       Write(tab[i])
+   END_FOR
+END
+
+
+
+***************************************************************
+***************************************************************
+
+
+La deuxième étape consiste à voir comment nous insérons un élément dans un tableau.
+N’oubliez pas que, lors de l’insertion d’éléments dans un tableau, nous devons toujours nous assurer de ne pas réduire la taille du tableau.
+
+Dans l’exemple ci-dessous, nous allons demander à l’utilisateur d’entrer un nouvel élément, ainsi que sa position dans ce tableau.
+Jetons un coup d’œil au code suivant:
+
+
+ALGORITHM insertion_array
+VAR
+   tab : ARRAY_OF INTEGER[5];
+   i,j, pos, elt : INTEGER;
+BEGIN
+   FOR i FROM 0 TO 3 DO
+       Read(tab[i]);// insert from user
+   END_FOR
+
+   Write("give the element to insert");
+   Read(elt);
+   Write("give the position to insert in array");
+   Read(pos);
+   j := tab.length;
+   WHILE (j >= pos) DO
+       tab[j+1] := tab[j]; // translation from left to right
+       j := j-1; // update index
+   END_WHILE
+
+   tab[pos] := elt;
+   // remember the tab.length is increased by 1.
+END
+
+
+
+*****************************************************************
+*****************************************************************
+
+La troisième étape consiste à voir comment nous pouvons effectuer une recherche dans un tableau.
+Plusieurs algorithmes sont utilisés pour rechercher un élément dans un tableau.
+
+Dans cet exemple, nous allons en utiliser un simple.
+Voici les étapes que nous devrions suivre:
+Démarrer
+Set J = 0
+Répétez les étapes 4 et 5 pendant que J < N
+SI tab[J] est égal ITEM THEN GO TO STEP 6
+Set J = J +1
+PRINT J, ITEM
+STOP
+
+
+
+*********************************************
+**********MATRICE****************
+
+m : ARRAY_OF INTEGER[M][N];
+FOR i FROM 0 TO M-1 DO
+    FOR j FROM 0 TO N-1 DO
+        m[i][j] :=0;
+    END_FOR
+END_FOR
+
+
+
+
+**multiplication**
+a : ARRAY_OF FLOAT[M][N];
+b : ARRAY_OF FLOAT[N][O];
+c : ARRAY_OF FLOAT[M][O];
+FOR i FROM 0 TO M-1 DO
+    FOR j FROM 0 TO O-1 DO
+        FOR k FROM 0 TO N-1 DO
+            // Compute dot product of row i and column j
+            c[i][j] := c[i][j] + a[i][k] *b[k][j];
+        END_FOR
+    END_FOR
+END_FOR
+
+
+
+*****************************************
+*****************************************
+
+Créons un algorithme qui calcule la somme des éléments successifs.
+Le code ci-dessous est notre premier essai:
+
+ALGORITHM array_sum_two_element
+VAR
+  tab : ARRAY_OF type[50];
+  i,n : INTEGER; 
+BEGIN
+   // Read the size
+   Read(n);
+   // Read elements
+   FOR i FROM 0 TO n-1 STEP 1  DO
+       Read(tab[i]);
+   END_FOR
+   // Add successive element
+   FOR i FROM 0 TO n-2 STEP 1  DO
+   tab[i] := tab[i]+tab[i+1];
+   END_FOR
+   // Display the array
+   FOR i FROM 0 TO n-1 STEP 1  DO
+       Write(tab[i])
+   END_FOR
+END
+
+
+

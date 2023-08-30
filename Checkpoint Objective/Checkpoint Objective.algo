@@ -1,0 +1,87 @@
+ALGORITHM SumDistinctElements
+VAR
+    set1: ARRAY[1..n] OF INTEGER
+    set2: ARRAY[1..m] OF INTEGER
+    sum: INTEGER
+    i, j, element: INTEGER
+
+BEGIN
+    // Initialize sets and sum
+    // ...
+    
+    sum := 0
+    
+    // Calculate the sum of distinct elements in the sets
+    FOR i FROM 1 TO n DO
+        element := set1[i]
+        // Check if the element is already in the sum
+        FOR j FROM 1 TO m DO
+            IF element = set2[j] THEN
+                element := 0 // Mark as found in the second set
+            END IF
+        END FOR
+        sum := sum + element
+    END FOR
+    
+    // Add elements from the second set that do not already exist
+    FOR j FROM 1 TO m DO
+        sum := sum + set2[j]
+    END FOR
+    
+    WRITE "The sum of distinct elements in the sets is: ", sum
+    
+END
+
+
+
+
+//Algorithm for Problem 2 - Dot Product (Procedure):
+
+
+
+
+ALGORITHM dot_product
+VAR
+    v1: ARRAY[1..n] OF REAL
+    v2: ARRAY[1..n] OF REAL
+    ps: REAL
+    i: INTEGER
+
+BEGIN
+    // Calculate dot product (scalar product) between v1 and v2
+    ps := 0
+    FOR i FROM 1 TO n DO
+        ps := ps + (v1[i] * v2[i])
+    END FOR
+    
+    // Return the dot product (scalar product)
+    RETURN ps
+    
+END
+
+ALGORITHM VectorsOrthogonal
+VAR
+    n: INTEGER
+    v1: ARRAY[1..n] OF REAL
+    v2: ARRAY[1..n] OF REAL
+    i: INTEGER
+    dotProduct: REAL
+
+BEGIN
+    // Read the size n of the vectors
+    
+    // Read elements of v1 and v2
+    
+    FOR i FROM 1 TO n DO
+        // Read elements of v1 and v2
+        
+        dotProduct := dot_product(v1, v2)
+        
+        IF dotProduct = 0 THEN
+            WRITE "Vectors v1 and v2 are orthogonal."
+        ELSE
+            WRITE "Vectors v1 and v2 are not orthogonal."
+        END IF
+    END FOR
+    
+END
