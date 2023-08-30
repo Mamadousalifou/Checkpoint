@@ -1,0 +1,23 @@
+ALGORITHM InsertionSort
+VAR
+    arr: ARRAY[1..n] OF INTEGER  // Le tableau à trier
+    i, j, key: INTEGER
+
+BEGIN
+    // Parcourir chaque élément à partir du deuxième (indice 1)
+    FOR i FROM 2 TO n DO
+        key := arr[i]  // Sauvegarder la valeur de l'élément actuel
+        j := i - 1     // Initialiser le compteur pour parcourir les éléments triés
+        
+        // Tant que l'élément trié est plus grand que la clé et que j est valide
+        WHILE j >= 1 AND arr[j] > key DO
+            arr[j + 1] := arr[j]  // Décaler les éléments triés vers la droite
+            j := j - 1             // Décrémenter j
+        END WHILE
+        
+        arr[j + 1] := key  // Insérer la clé à la bonne position dans la séquence triée
+    END FOR
+    
+    // Le tableau est maintenant trié
+    
+END
